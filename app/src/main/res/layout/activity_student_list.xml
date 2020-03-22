@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/activity_main_fab_new_student"
+        android:id="@+id/activity_student_list_fab_new_student"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -16,7 +16,7 @@
         android:clickable="true" />
 
     <ListView
-        android:id="@+id/activity_main_student_list"
+        android:id="@+id/activity_student_list_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
