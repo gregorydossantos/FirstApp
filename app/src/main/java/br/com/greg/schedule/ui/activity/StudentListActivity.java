@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
@@ -12,14 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import br.com.greg.schedule.DAO.StudentDAO;
 import br.com.greg.schedule.R;
 
 public class StudentListActivity extends AppCompatActivity {
+
+    //Attributes
+    public static final String TITLE_APPBAR = "Student List";
+    private final StudentDAO dao = new StudentDAO();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,16 +26,9 @@ public class StudentListActivity extends AppCompatActivity {
 
         //Setting the main layout for app
         setContentView(R.layout.activity_student_list);
+        setTitle(TITLE_APPBAR);
 
-        setTitle("Student List");
-
-        FloatingActionButton newStudent = findViewById(R.id.activity_student_list_fab_new_student);
-        newStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(StudentListActivity.this, StudentFormActivity.class));
-            }
-        });
+        configFabNewStudent();
 
         /*
         //Creating an list of students
@@ -45,13 +37,29 @@ public class StudentListActivity extends AppCompatActivity {
         */
     }
 
+    //Method to load the activity Student Form
+    private void configFabNewStudent() {
+        FloatingActionButton newStudent = findViewById(R.id.activity_student_list_fab_new_student);
+        newStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openStudentForm();
+            }
+        });
+    }
+
+    private void openStudentForm() {
+        startActivity(new Intent(this, StudentFormActivity.class));
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
+        configStudentList();
+    }
 
-        StudentDAO dao = new StudentDAO();
-
-        //Adding students on the list
+    //Adding students on the list
+    private void configStudentList() {
         ListView studentList = findViewById(R.id.activity_student_list_listview);
         studentList.setAdapter(new ArrayAdapter<>(
                 this,

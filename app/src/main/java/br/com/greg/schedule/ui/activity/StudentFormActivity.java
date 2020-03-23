@@ -1,13 +1,11 @@
 package br.com.greg.schedule.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.greg.schedule.DAO.StudentDAO;
 import br.com.greg.schedule.R;
@@ -15,32 +13,54 @@ import br.com.greg.schedule.model.Student;
 
 public class StudentFormActivity extends AppCompatActivity {
 
+    //Attributes
+    public static final String TITLE_APPBAR = "New student";
+    private EditText nameField;
+    private EditText phoneField;
+    private EditText emailField;
+    private final StudentDAO dao = new StudentDAO();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_form);
+        setTitle(TITLE_APPBAR);
 
-        final StudentDAO dao = new StudentDAO();
+        bootFields();
+        configSaveButton();
+    }
 
-        //Defining the local variables that will take the fields on the app
-        final EditText nameField = findViewById(R.id.activity_student_form_name);
-        final EditText phoneField = findViewById(R.id.activity_student_form_phone);
-        final EditText emailField = findViewById(R.id.activity_student_form_email);
-
-        //Create the method to save a new student
+    //Method to create and configure the save button
+    private void configSaveButton() {
         Button save = findViewById(R.id.activity_student_form_save_button);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = nameField.getText().toString();
-                String phone = phoneField.getText().toString();
-                String email = emailField.getText().toString();
-
-                Student student = new Student(name, phone, email);
-                dao.save(student);
-
-                finish();
+                Student student = createStudent();
+                save(student);
             }
         });
+    }
+
+    //Defining the local variables that will take the fields on the app
+    private void bootFields() {
+        nameField = findViewById(R.id.activity_student_form_name);
+        phoneField = findViewById(R.id.activity_student_form_phone);
+        emailField = findViewById(R.id.activity_student_form_email);
+    }
+
+    //Method to save a new student
+    private void save(Student student) {
+        dao.save(student);
+        finish();
+    }
+
+    //Method to create a new student
+    private Student createStudent() {
+        String name = nameField.getText().toString();
+        String phone = phoneField.getText().toString();
+        String email = emailField.getText().toString();
+
+        return new Student(name, phone, email);
     }
 }
