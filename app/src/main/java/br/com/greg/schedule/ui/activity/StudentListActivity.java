@@ -3,11 +3,14 @@ package br.com.greg.schedule.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,7 +39,6 @@ public class StudentListActivity extends AppCompatActivity {
         //Setting the main layout for app
         setContentView(R.layout.activity_student_list);
         setTitle(TITLE_APPBAR);
-
         configFabNewStudent();
         configStudentList();
 
@@ -48,6 +50,23 @@ public class StudentListActivity extends AppCompatActivity {
         List<String> student = new ArrayList<>(Arrays.asList("Greg", "Bia", "Pedro"));
         ListView studentList = findViewById(R.id.activity_student_list_listview);
         */
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.activity_student_list_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.activity_student_list_menu_remove) {
+            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            Student studentChosen = adapter.getItem(menuInfo.position);
+            remove(studentChosen);
+        }
+        return super.onContextItemSelected(item);
     }
 
     //Method to load the activity Student Form
@@ -81,19 +100,22 @@ public class StudentListActivity extends AppCompatActivity {
         ListView studentList = findViewById(R.id.activity_student_list_listview);
         configAdapter(studentList);
         configListenerItemClicked(studentList);
-        configListernerItemLongClicked(studentList);
+        //configListernerItemLongClicked(studentList);
+        registerForContextMenu(studentList);
     }
 
+    /*
     private void configListernerItemLongClicked(ListView studentList) {
         studentList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Student studentChosen = (Student) parent.getItemAtPosition(position);
                 remove(studentChosen);
-                return true;
+                return false;
             }
         });
     }
+    */
 
     private void remove(Student student) {
         dao.remove(student);
@@ -106,7 +128,6 @@ public class StudentListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Student studentChosen = (Student) parent.getItemAtPosition(position);
                 openStudentFormToEdit(studentChosen);
-
             }
         });
     }

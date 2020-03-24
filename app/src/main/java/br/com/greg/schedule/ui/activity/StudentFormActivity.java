@@ -2,10 +2,13 @@ package br.com.greg.schedule.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.greg.schedule.DAO.StudentDAO;
@@ -29,10 +32,25 @@ public class StudentFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_form);
-
         bootFields();
-        configSaveButton();
+        //configSaveButton();
         loadStudent();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_student_form_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.activity_student_form_menu_save)
+            endsForm();
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void loadStudent() {
@@ -54,17 +72,20 @@ public class StudentFormActivity extends AppCompatActivity {
     }
 
     //Method to create and configure the save button
+    /*
     private void configSaveButton() {
         Button save = findViewById(R.id.activity_student_form_save_button);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Student student = createStudent();
-                save(student);*/
+                *//*Student student = createStudent();
+                save(student);*//*
                 endsForm();
             }
         });
     }
+    */
+
 
     private void endsForm() {
         createStudent();
