@@ -6,7 +6,6 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -15,9 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import br.com.greg.schedule.DAO.StudentDAO;
 import br.com.greg.schedule.R;
 import br.com.greg.schedule.model.Student;
+import br.com.greg.schedule.ui.StudentListView;
 
 import static br.com.greg.schedule.ui.activity.ConstantActivities.STUDENT_KEY;
 
@@ -25,9 +24,7 @@ public class StudentListActivity extends AppCompatActivity {
 
     //Attributes
     public static final String TITLE_APPBAR = "Student List";
-
-    private final StudentDAO dao = new StudentDAO();
-    private ArrayAdapter<Student> adapter;
+    private final StudentListView studentListView = new StudentListView(this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,15 +35,6 @@ public class StudentListActivity extends AppCompatActivity {
         setTitle(TITLE_APPBAR);
         configFabNewStudent();
         configStudentList();
-
-        dao.save(new Student("Gregory", "1234-5678", "greg@gmail.com"));
-        dao.save(new Student("Renato", "9012-3456", "renato@retricia.com.br"));
-
-        /*
-        //Creating an list of students
-        List<String> student = new ArrayList<>(Arrays.asList("Greg", "Bia", "Pedro"));
-        ListView studentList = findViewById(R.id.activity_student_list_listview);
-        */
     }
 
     @Override
@@ -59,9 +47,7 @@ public class StudentListActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.activity_student_list_menu_remove) {
-            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-            Student studentChosen = adapter.getItem(menuInfo.position);
-            remove(studentChosen);
+            studentListView.confirmRemove(item);
         }
         return super.onContextItemSelected(item);
     }
@@ -84,39 +70,15 @@ public class StudentListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        updateStudents();
-    }
-
-    private void updateStudents() {
-        adapter.clear();
-        adapter.addAll(dao.allStudents());
+        studentListView.updateStudents();
     }
 
     //Adding students on the list
     private void configStudentList() {
         ListView studentList = findViewById(R.id.activity_student_list_listview);
-        configAdapter(studentList);
+        studentListView.configAdapter(studentList);
         configListenerItemClicked(studentList);
-        //configListernerItemLongClicked(studentList);
         registerForContextMenu(studentList);
-    }
-
-    /*
-    private void configListernerItemLongClicked(ListView studentList) {
-        studentList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Student studentChosen = (Student) parent.getItemAtPosition(position);
-                remove(studentChosen);
-                return false;
-            }
-        });
-    }
-    */
-
-    private void remove(Student student) {
-        dao.remove(student);
-        adapter.remove(student);
     }
 
     private void configListenerItemClicked(ListView studentList) {
@@ -134,10 +96,5 @@ public class StudentListActivity extends AppCompatActivity {
         Intent goStudentForm = new Intent(StudentListActivity.this, StudentFormActivity.class);
         goStudentForm.putExtra(STUDENT_KEY, student);
         startActivity(goStudentForm);
-    }
-
-    private void configAdapter(ListView studentList) {
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1);
-        studentList.setAdapter(adapter);
     }
 }

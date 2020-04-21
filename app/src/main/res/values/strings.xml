@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Schedule</string>
+    <string name="name">Name</string>
+    <string name="_11_phone">(11) Phone</string>
+    <string name="e_mail">E-mail</string>
+    <string name="save">Save</string>
+    <string name="remove">Remove</string>
 </resources>
