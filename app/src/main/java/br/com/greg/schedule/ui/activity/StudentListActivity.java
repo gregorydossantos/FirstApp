@@ -24,7 +24,7 @@ public class StudentListActivity extends AppCompatActivity {
 
     //Attributes
     public static final String TITLE_APPBAR = "Student List";
-    private final StudentListView studentListView = new StudentListView(this);
+    private StudentListView studentListView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class StudentListActivity extends AppCompatActivity {
         //Setting the main layout for app
         setContentView(R.layout.activity_student_list);
         setTitle(TITLE_APPBAR);
+        studentListView = new StudentListView(this);
         configFabNewStudent();
         configStudentList();
     }

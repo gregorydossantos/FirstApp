@@ -9,8 +9,9 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import br.com.greg.schedule.DAO.StudentDAO;
 import br.com.greg.schedule.R;
+import br.com.greg.schedule.database.ScheduleDatabase;
+import br.com.greg.schedule.database.dao.StudentDAO;
 import br.com.greg.schedule.model.Student;
 
 import static br.com.greg.schedule.ui.activity.ConstantActivities.STUDENT_KEY;
@@ -24,12 +25,14 @@ public class StudentFormActivity extends AppCompatActivity {
     private EditText phoneField;
     private EditText emailField;
     private Student student;
-    private final StudentDAO dao = new StudentDAO();
+    private StudentDAO dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_form);
+        ScheduleDatabase database = ScheduleDatabase.getInstance(this);
+        dao = database.getRoomStudentDAO();
         bootFields();
         //configSaveButton();
         loadStudent();

@@ -1,13 +1,18 @@
 package br.com.greg.schedule.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+@Entity
 public class Student implements Serializable {
 
     //Attributes
-    private int id = 0;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String name;
     private String phone;
     private String email;
@@ -15,6 +20,7 @@ public class Student implements Serializable {
     //Builders
     public Student() {}
 
+    @Ignore
     public Student(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;

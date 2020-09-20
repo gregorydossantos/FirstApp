@@ -7,7 +7,8 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import br.com.greg.schedule.DAO.StudentDAO;
+import br.com.greg.schedule.database.ScheduleDatabase;
+import br.com.greg.schedule.database.dao.StudentDAO;
 import br.com.greg.schedule.model.Student;
 import br.com.greg.schedule.ui.adapter.StudentListAdapter;
 
@@ -21,7 +22,7 @@ public class StudentListView {
     public StudentListView(Context context) {
         this.context = context;
         this.adapter = new StudentListAdapter(this.context);
-        this.dao = new StudentDAO();
+        this.dao = ScheduleDatabase.getInstance(context).getRoomStudentDAO();
     }
 
     public void confirmRemove(final MenuItem item) {
