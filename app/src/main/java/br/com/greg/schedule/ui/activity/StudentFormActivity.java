@@ -22,6 +22,7 @@ public class StudentFormActivity extends AppCompatActivity {
     private static final String TITLE_APPBAR_NEW_STUDENT = "New student";
     private static final String TITLE_APPBAR_EDIT_STUDENT = "Edit student";
     private EditText nameField;
+    private EditText lastnameField;
     private EditText phoneField;
     private EditText emailField;
     private Student student;
@@ -68,6 +69,7 @@ public class StudentFormActivity extends AppCompatActivity {
 
     private void fillsFields() {
         nameField.setText(student.getName());
+        lastnameField.setText(student.getLastname());
         phoneField.setText(student.getPhone());
         emailField.setText(student.getEmail());
     }
@@ -102,6 +104,7 @@ public class StudentFormActivity extends AppCompatActivity {
     //Defining the local variables that will take the fields on the app
     private void bootFields() {
         nameField = findViewById(R.id.activity_student_form_name);
+        lastnameField = findViewById(R.id.activity_student_form_lastname);
         phoneField = findViewById(R.id.activity_student_form_phone);
         emailField = findViewById(R.id.activity_student_form_email);
     }
@@ -115,10 +118,12 @@ public class StudentFormActivity extends AppCompatActivity {
     //Method to create a new student
     private void createStudent() {
         String name = nameField.getText().toString();
+        String lastname = lastnameField.getText().toString();
         String phone = phoneField.getText().toString();
         String email = emailField.getText().toString();
 
         student.setName(name);
+        student.setLastname(lastname);
         student.setPhone(phone);
         student.setEmail(email);
     }

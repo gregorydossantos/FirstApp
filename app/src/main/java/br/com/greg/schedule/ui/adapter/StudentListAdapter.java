@@ -50,7 +50,7 @@ public class StudentListAdapter extends BaseAdapter {
 
     private void binds(View view, Student student) {
         TextView name = view.findViewById(R.id.item_student_name);
-        name.setText(student.getName());
+        name.setText(student.getFullName());
         TextView phone = view.findViewById(R.id.item_student_phone);
         phone.setText(student.getPhone());
     }

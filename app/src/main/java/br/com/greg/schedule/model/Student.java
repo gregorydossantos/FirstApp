@@ -14,6 +14,7 @@ public class Student implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
+    private String lastname;
     private String phone;
     private String email;
 
@@ -44,6 +45,14 @@ public class Student implements Serializable {
         return name;
     }
 
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -51,7 +60,6 @@ public class Student implements Serializable {
     public String getPhone() {
         return phone;
     }
-
 
     public void setEmail(String email) {
         this.email = email;
@@ -73,4 +81,7 @@ public class Student implements Serializable {
     }
 
 
+    public String getFullName() {
+        return name + " " + lastname;
+    }
 }
