@@ -1,11 +1,15 @@
 package br.com.greg.schedule.model;
 
+import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @Entity
 public class Student implements Serializable {
@@ -17,16 +21,10 @@ public class Student implements Serializable {
     private String lastname;
     private String phone;
     private String email;
+    private Calendar registrationDate = Calendar.getInstance();
 
     //Builders
     public Student() {}
-
-    @Ignore
-    public Student(String name, String phone, String email) {
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-    }
 
     //Getters and Setters
     public void setId(int id) {
@@ -69,9 +67,23 @@ public class Student implements Serializable {
         return email;
     }
 
+    public Calendar getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Calendar registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
     //Methods
     public boolean hasId() {
         return id > 0;
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    public String getFormattedDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(registrationDate.getTime());
     }
 
     @NonNull
@@ -79,7 +91,6 @@ public class Student implements Serializable {
     public String toString() {
         return name + " - " + phone;
     }
-
 
     public String getFullName() {
         return name + " " + lastname;

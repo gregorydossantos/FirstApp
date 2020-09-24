@@ -59,14 +59,6 @@ public class StudentListAdapter extends BaseAdapter {
         return LayoutInflater.from(context).inflate(R.layout.item_student, parent, false);
     }
 
-    /*private void clear() {
-        students.clear();
-    }
-
-    private void addAll(List<Student> students) {
-        this.students.addAll(students);
-    }*/
-
     public void update(List<Student> students) {
         this.students.clear();
         this.students.addAll(students);

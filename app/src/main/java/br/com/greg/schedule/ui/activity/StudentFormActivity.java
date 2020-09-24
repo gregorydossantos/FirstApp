@@ -9,6 +9,9 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+
 import br.com.greg.schedule.R;
 import br.com.greg.schedule.database.ScheduleDatabase;
 import br.com.greg.schedule.database.dao.StudentDAO;
@@ -35,8 +38,8 @@ public class StudentFormActivity extends AppCompatActivity {
         ScheduleDatabase database = ScheduleDatabase.getInstance(this);
         dao = database.getRoomStudentDAO();
         bootFields();
-        //configSaveButton();
         loadStudent();
+        setMaskPhone();
     }
 
     @Override
@@ -74,22 +77,6 @@ public class StudentFormActivity extends AppCompatActivity {
         emailField.setText(student.getEmail());
     }
 
-    //Method to create and configure the save button
-    /*
-    private void configSaveButton() {
-        Button save = findViewById(R.id.activity_student_form_save_button);
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                *//*Student student = createStudent();
-                save(student);*//*
-                endsForm();
-            }
-        });
-    }
-    */
-
-
     private void endsForm() {
         createStudent();
 
@@ -126,5 +113,11 @@ public class StudentFormActivity extends AppCompatActivity {
         student.setLastname(lastname);
         student.setPhone(phone);
         student.setEmail(email);
+    }
+
+    private void setMaskPhone() {
+        SimpleMaskFormatter smf = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
+        MaskTextWatcher mtw = new MaskTextWatcher(phoneField, smf);
+        phoneField.addTextChangedListener(mtw);
     }
 }
