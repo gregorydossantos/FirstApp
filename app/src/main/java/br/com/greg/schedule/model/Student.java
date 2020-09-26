@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -20,6 +19,7 @@ public class Student implements Serializable {
     private String name;
     private String lastname;
     private String phone;
+    private String cellPhone;
     private String email;
     private Calendar registrationDate = Calendar.getInstance();
 
@@ -51,12 +51,20 @@ public class Student implements Serializable {
         return lastname;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
+    }
+
+    public String getCellPhone() {
+        return cellPhone;
     }
 
     public void setEmail(String email) {
@@ -89,7 +97,7 @@ public class Student implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return name + " - " + phone;
+        return name + " - " + cellPhone;
     }
 
     public String getFullName() {

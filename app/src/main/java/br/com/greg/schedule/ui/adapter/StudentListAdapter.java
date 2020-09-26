@@ -53,6 +53,8 @@ public class StudentListAdapter extends BaseAdapter {
         name.setText(student.getFullName());
         TextView phone = view.findViewById(R.id.item_student_phone);
         phone.setText(student.getPhone());
+        TextView cellPhone = view.findViewById(R.id.item_student_cellphone);
+        cellPhone.setText(student.getCellPhone());
     }
 
     private View createView(ViewGroup parent) {

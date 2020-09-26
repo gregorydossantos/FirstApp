@@ -27,7 +27,15 @@
         <EditText android:id="@+id/activity_student_form_phone"
             android:layout_width="match_parent"
             android:layout_margin="8dp"
-            android:hint="@string/_11_phone"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no" />
+
+        <EditText android:id="@+id/activity_student_form_cellphone"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:hint="@string/cell_phone"
             android:inputType="phone"
             android:layout_height="wrap_content"
             android:importantForAutofill="no" />

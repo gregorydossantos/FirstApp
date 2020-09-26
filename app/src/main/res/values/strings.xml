@@ -2,8 +2,11 @@
     <string name="app_name">Schedule</string>
     <string name="name">Name</string>
     <string name="lastname">Last name</string>
-    <string name="_11_phone">(11) Phone</string>
+    <string name="phone">(11) Phone</string>
+    <string name="cell_phone">(11) Cell phone</string>
     <string name="e_mail">Email</string>
     <string name="save">Save</string>
     <string name="remove">Remove</string>
+    <string name="error_name">Name is required</string>
+    <string name="error_cellphone">Cell phone is required</string>
 </resources>

@@ -16,6 +16,7 @@ import br.com.greg.schedule.R;
 import br.com.greg.schedule.database.ScheduleDatabase;
 import br.com.greg.schedule.database.dao.StudentDAO;
 import br.com.greg.schedule.model.Student;
+import br.com.greg.schedule.useful.StringUseful;
 
 import static br.com.greg.schedule.ui.activity.ConstantActivities.STUDENT_KEY;
 
@@ -25,8 +26,9 @@ public class StudentFormActivity extends AppCompatActivity {
     private static final String TITLE_APPBAR_NEW_STUDENT = "New student";
     private static final String TITLE_APPBAR_EDIT_STUDENT = "Edit student";
     private EditText nameField;
-    private EditText lastnameField;
+    private EditText lastNameField;
     private EditText phoneField;
+    private EditText cellPhoneField;
     private EditText emailField;
     private Student student;
     private StudentDAO dao;
@@ -39,7 +41,7 @@ public class StudentFormActivity extends AppCompatActivity {
         dao = database.getRoomStudentDAO();
         bootFields();
         loadStudent();
-        setMaskPhone();
+        setPhoneMask();
     }
 
     @Override
@@ -53,7 +55,7 @@ public class StudentFormActivity extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if (itemId == R.id.activity_student_form_menu_save)
-            endsForm();
+            saveStudent();
 
         return super.onOptionsItemSelected(item);
     }
@@ -72,12 +74,15 @@ public class StudentFormActivity extends AppCompatActivity {
 
     private void fillsFields() {
         nameField.setText(student.getName());
-        lastnameField.setText(student.getLastname());
+        lastNameField.setText(student.getLastname());
         phoneField.setText(student.getPhone());
+        cellPhoneField.setText(student.getCellPhone());
         emailField.setText(student.getEmail());
     }
 
-    private void endsForm() {
+    private void saveStudent() {
+        //TODO check the name and cell fields, and only allow creating a student when both are filled
+        //Today there isn't check and allows to create an empty student in db
         createStudent();
 
         if (student.hasId())
@@ -91,33 +96,36 @@ public class StudentFormActivity extends AppCompatActivity {
     //Defining the local variables that will take the fields on the app
     private void bootFields() {
         nameField = findViewById(R.id.activity_student_form_name);
-        lastnameField = findViewById(R.id.activity_student_form_lastname);
+        lastNameField = findViewById(R.id.activity_student_form_lastname);
         phoneField = findViewById(R.id.activity_student_form_phone);
+        cellPhoneField = findViewById(R.id.activity_student_form_cellphone);
         emailField = findViewById(R.id.activity_student_form_email);
-    }
-
-    //Method to save a new student
-    private void save(Student student) {
-        dao.save(student);
-        finish();
     }
 
     //Method to create a new student
     private void createStudent() {
         String name = nameField.getText().toString();
-        String lastname = lastnameField.getText().toString();
+        String lastname = lastNameField.getText().toString();
         String phone = phoneField.getText().toString();
+        String cellPhone = cellPhoneField.getText().toString();
         String email = emailField.getText().toString();
 
         student.setName(name);
         student.setLastname(lastname);
         student.setPhone(phone);
+        student.setCellPhone(cellPhone);
         student.setEmail(email);
     }
 
-    private void setMaskPhone() {
-        SimpleMaskFormatter smf = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
-        MaskTextWatcher mtw = new MaskTextWatcher(phoneField, smf);
-        phoneField.addTextChangedListener(mtw);
+    private void setPhoneMask() {
+        //Mask to phone
+        SimpleMaskFormatter phoneSMF = new SimpleMaskFormatter("(NN) NNNN-NNNN");
+        MaskTextWatcher phoneMTW = new MaskTextWatcher(phoneField, phoneSMF);
+        phoneField.addTextChangedListener(phoneMTW);
+
+        //Mask to cell phone
+        SimpleMaskFormatter cellPhoneSMF = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
+        MaskTextWatcher cellPhoneMTW = new MaskTextWatcher(cellPhoneField, cellPhoneSMF);
+        cellPhoneField.addTextChangedListener(cellPhoneMTW);
     }
 }

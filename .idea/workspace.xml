@@ -10,23 +10,17 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b001ca3f-2ba5-499c-9a22-e351073527d1" name="Default Changelist" comment="v.2.1&#10;-Including new field in the database and in the form.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_rtoshiro_mflibrary_mflibrary_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/useful/DateUseful.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_app.xml" afterDir="false" />
+    <list default="true" id="b001ca3f-2ba5-499c-9a22-e351073527d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/useful/StringUseful.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/DAO/StudentDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/database/ScheduleDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/database/ScheduleDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/model/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/ui/activity/StudentFormActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/ui/activity/StudentFormActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/ui/adapter/StudentListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/greg/schedule/ui/adapter/StudentListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_form.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_form.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_student.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600566053927</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v.2.2&#10;-Inserting the record creation date field in the database. &#10;-Implementing the mask in the phone field.&#10;-Calendar data converter.&#10;-Changing the launcher app">
+      <created>1600987345130</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600987345130</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,17 +238,18 @@
     <MESSAGE value="v.1.5&#10;-Remove all imports that are no longer used." />
     <MESSAGE value="v.1.6&#10;-Refactoring code and add new behaviors." />
     <MESSAGE value="v.2.0&#10;-Implementing SQLite in the app." />
-    <option name="LAST_COMMIT_MESSAGE" value="v.2.0&#10;-Implementing SQLite in the app." />
+    <MESSAGE value="v.2.2&#10;-Inserting the record creation date field in the database. &#10;-Implementing the mask in the phone field.&#10;-Calendar data converter.&#10;-Changing the launcher app" />
+    <option name="LAST_COMMIT_MESSAGE" value="v.2.2&#10;-Inserting the record creation date field in the database. &#10;-Implementing the mask in the phone field.&#10;-Calendar data converter.&#10;-Changing the launcher app" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="251" width="952" height="524" key="#PSD" timestamp="1600566268694">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
     <state x="223" y="251" width="952" height="524" key="#PSD/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600566268694" />
-    <state x="511" y="203" width="376" height="620" key="#com.intellij.ide.util.MemberChooser" timestamp="1600984094340">
+    <state x="511" y="203" width="376" height="620" key="#com.intellij.ide.util.MemberChooser" timestamp="1600988313931">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state x="511" y="203" width="376" height="620" key="#com.intellij.ide.util.MemberChooser/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600984094340" />
+    <state x="511" y="203" width="376" height="620" key="#com.intellij.ide.util.MemberChooser/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600988313931" />
     <state x="292" y="132" width="813" height="762" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600565726982">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
@@ -256,53 +258,65 @@
       <screen x="0" y="132" width="1366" height="768" />
     </state>
     <state x="436" y="266" width="526" height="494" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600564704283" />
-    <state x="40" y="132" width="1326" height="762" key="CommitChangelistDialog2" timestamp="1600567286905">
+    <state x="40" y="132" width="1326" height="762" key="CommitChangelistDialog2" timestamp="1601134646887">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state x="40" y="132" width="1326" height="762" key="CommitChangelistDialog2/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600567286905" />
-    <state width="1284" height="233" key="GridCell.Tab.0.bottom" timestamp="1600987048253">
+    <state x="40" y="132" width="1326" height="762" key="CommitChangelistDialog2/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134646887" />
+    <state width="1284" height="233" key="GridCell.Tab.0.bottom" timestamp="1601134511166">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state width="1284" height="233" key="GridCell.Tab.0.bottom/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987048253" />
-    <state width="1284" height="233" key="GridCell.Tab.0.center" timestamp="1600987048253">
+    <state width="1284" height="233" key="GridCell.Tab.0.bottom/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134511166" />
+    <state width="1284" height="233" key="GridCell.Tab.0.center" timestamp="1601134511166">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state width="1284" height="233" key="GridCell.Tab.0.center/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987048253" />
-    <state width="1284" height="233" key="GridCell.Tab.0.left" timestamp="1600987048253">
+    <state width="1284" height="233" key="GridCell.Tab.0.center/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134511166" />
+    <state width="1284" height="233" key="GridCell.Tab.0.left" timestamp="1601134511165">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state width="1284" height="233" key="GridCell.Tab.0.left/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987048253" />
-    <state width="1284" height="233" key="GridCell.Tab.0.right" timestamp="1600987048253">
+    <state width="1284" height="233" key="GridCell.Tab.0.left/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134511165" />
+    <state width="1284" height="233" key="GridCell.Tab.0.right" timestamp="1601134511166">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state width="1284" height="233" key="GridCell.Tab.0.right/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987048253" />
-    <state width="1284" height="233" key="GridCell.Tab.1.bottom" timestamp="1600987043347">
+    <state width="1284" height="233" key="GridCell.Tab.0.right/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134511166" />
+    <state width="1284" height="233" key="GridCell.Tab.1.bottom" timestamp="1601134511178">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state width="1284" height="233" key="GridCell.Tab.1.bottom/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987043347" />
-    <state width="1284" height="233" key="GridCell.Tab.1.center" timestamp="1600987043347">
+    <state width="1284" height="233" key="GridCell.Tab.1.bottom/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134511178" />
+    <state width="1284" height="233" key="GridCell.Tab.1.center" timestamp="1601134511178">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state width="1284" height="233" key="GridCell.Tab.1.center/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987043347" />
-    <state width="1284" height="233" key="GridCell.Tab.1.left" timestamp="1600987043347">
+    <state width="1284" height="233" key="GridCell.Tab.1.center/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134511178" />
+    <state width="1284" height="233" key="GridCell.Tab.1.left" timestamp="1601134511178">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state width="1284" height="233" key="GridCell.Tab.1.left/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987043347" />
-    <state width="1284" height="233" key="GridCell.Tab.1.right" timestamp="1600987043347">
+    <state width="1284" height="233" key="GridCell.Tab.1.left/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134511178" />
+    <state width="1284" height="233" key="GridCell.Tab.1.right" timestamp="1601134511178">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state width="1284" height="233" key="GridCell.Tab.1.right/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987043347" />
-    <state x="298" y="252" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1600566056427">
+    <state width="1284" height="233" key="GridCell.Tab.1.right/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601134511178" />
+    <state x="298" y="252" width="802" height="522" key="Vcs.Push.Dialog.v2" timestamp="1600987347381">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state x="298" y="252" width="802" height="522" key="Vcs.Push.Dialog.v2/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600566056427" />
+    <state x="298" y="252" width="802" height="522" key="Vcs.Push.Dialog.v2/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600987347381" />
+    <state width="664" height="384" key="XDebugger.FullValuePopup" timestamp="1601131203799">
+      <screen x="0" y="132" width="1366" height="768" />
+    </state>
+    <state width="664" height="384" key="XDebugger.FullValuePopup/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1601131203799" />
     <state x="383" y="144" width="730" height="744" key="find.popup" timestamp="1600809393353">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
     <state x="383" y="144" width="730" height="744" key="find.popup/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600809393353" />
-    <state x="366" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1600986797514">
+    <state x="366" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1600988703605">
       <screen x="0" y="132" width="1366" height="768" />
     </state>
-    <state x="366" y="220" width="672" height="678" key="search.everywhere.popup/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600986797514" />
+    <state x="366" y="220" width="672" height="678" key="search.everywhere.popup/0.132.1366.768/1366.0.1440.900@0.132.1366.768" timestamp="1600988703605" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="nameField.getText().toString()" language="JAVA" />
+        <watch expression="validateFields" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
